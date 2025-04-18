@@ -1,5 +1,5 @@
 ![image](https://github.com/user-attachments/assets/e35f53e9-70b7-453a-bd30-664f2bf34674)<div align="center">
-<h1>FusionPalmID</h1>
+<h1>dynamic-object-removal-aerial</h1>
 <h3>Dynamic Object Removal and Background Reconstruction in Aerial Images Using Global Alignment and YOLOv12</h3>
 Chi Hung Wang<sup>1</sup>, Yu Siang Siang<sup>2</sup>, Xiang Shun Yang<sup>3</sup>, Wei Ren Chen<sup>4</sup>, Jun Jie Yen<sup>5</sup>
 
