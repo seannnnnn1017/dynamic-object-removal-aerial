@@ -90,6 +90,7 @@ python YoloV12/predict.py --weights checkpoints/yolov12_best.pt --source path/to
 | Traditional Differencing | 0.163     | 0.353  | 0.223    | 0.233 |
 | YOLOv12 only             | 0.543     | 0.671  | 0.600    | 0.946 |
 | Depth-Difference-YOLOv12 | 0.917     | 0.886  | 0.901    | 0.972 |
+---
 ![image](output.png)
 
 ### Performance Visualization
