@@ -18,23 +18,6 @@ Aerial imagery is widely used in intelligent traffic management and urban planni
 ![image](image.png)
 
 
-## Directory Structure
-
-```
-FusionPalmID/
-├── configs/               # Configuration files
-│   ├── dataset.yaml      # Dataset configuration
-│   └── model_config.yaml # Model hyperparameters
-├── src/                  # Source code
-│   ├── models/          # Model implementations
-│   └── utils/           # Utility functions
-├── checkpoints/          # Saved model weights
-├── results/              # Experimental results
-├── YoloV10/
-├── YoloV11/
-├── YoloV12/
-└── requirements.txt      # Python dependencies
-```
 
 ## Installation
 
