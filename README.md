@@ -1,6 +1,6 @@
 ![image](https://github.com/user-attachments/assets/e35f53e9-70b7-453a-bd30-664f2bf34674)<div align="center">
 <h1>dynamic-object-removal-aerial</h1>
-<h3>Dynamic Object Removal and Background Reconstruction in Aerial Images via Global Alignment and YOLOv12</h3>
+<h3>Dynamic Object Removal and Background Reconstruction in Aerial Images Using Global Alignment and YOLOv12</h3>
 Chi Hung Wang<sup>1</sup>, Yu Siang Siang<sup>2</sup>, Xiang Shun Yang<sup>3</sup>, Wei Ren Chen<sup>4</sup>, Jun Jie Yen<sup>5</sup>
 
 Dept. of Artificial Intelligence Technology and Application, Feng Chia University, Taichung, Taiwan
@@ -15,7 +15,7 @@ Dept. of Artificial Intelligence Technology and Application, Feng Chia Universit
 Aerial imagery is widely used in intelligent traffic management and urban planning. However, dynamic objects (such as vehicles and pedestrians) often occlude road signs and traffic markings, reducing the accuracy of image analysis. Although traditional methods can partially restore the background, they face issues such as high computational cost, blurred details, and background misalignment when handling large-scale aerial data. To overcome these challenges, this study proposes a background reconstruction method that integrates global alignment, object recognition, and weighted averaging. First, RANSAC with Homography is used to align multiple images, correcting spatial errors caused by UAV shake or viewpoint shifts. Then, in the aligned image sequence, dynamic objects are detected by combining depth estimation, frame differencing, and the YOLOv12 model, producing accurate dynamic masks. At this stage, the detection model achieves a Precision of 0.917, Recall of 0.886, F1-score of 0.901, and AP of 0.946, demonstrating strong performance. Finally, using the dynamic masks, weighted background averaging is applied to remove dynamic regions and restore a stable, clear background. Experimental results show that the proposed method outperforms traditional averaging and generative models (such as GANs and Diffusion) in preserving traffic details like crosswalks, lane markings, and directional indicators. This approach is suitable for intelligent traffic monitoring, UAV image analysis, and urban planning. The project of this work is made publicly available at https://github.com/seannnnnn1017/dynamic-object-removal-aerial.
 
 ## Apporach
-![image](https://github.com/seannnnnn1017/dynamic-object-removal-aerial/blob/main/image.png)
+![image](image.png)
 
 
 ## Directory Structure
@@ -80,14 +80,6 @@ Note: If you encounter any CUDA compatibility issues, please refer to the [PyTor
 
 The dataset follows the YOLOv12 format with both palm print (RGB) and palm vein (NIR) images. Dataset configuration can be found in `configs/dataset.yaml`.
 
-### Download Dataset
-The complete dataset is available on Google Drive:
-- [Download Dataset](https://drive.google.com/drive/folders/1iJRFnnYTiskpzvhktCwaTgJ-xAfrg4QL?usp=sharing)
-
-The drive contains:
-- `raw_data/`: Original palm print and palm vein images
-- `yolo_dataset_blended_N10GM/`: Preprocessed and formatted dataset ready for YOLOv12 training
-- `best.pt`: Pre-trained model weights from yolo
 
 ### Data Format
 - Images: `.jpg` format
@@ -108,30 +100,23 @@ python YoloV12/predict.py --weights checkpoints/yolov12_best.pt --source path/to
 ## Main Results
 
 **Comparison of YOLOv10, YOLOv11, and YOLOv12**:
-| Model                                                                                | size<br><sup>(pixels) | mAP<sup>@<br>50-95 | Speed(s)<br><sup>RTX4070Ti<br> | model based<br> | 
-| :----------------------------------------------------------------------------------- | :-------------------: | :-------------------:| :------------------------------:| :-----------------:|
-| YOLOv12<br> | 1024                   | 0.923                 | 2303                            | YOLO12n               |
-| YOLOv11 | 1024                   | 0.915                 | 1258                            | YOLO11n               |
-| YOLOv10 | 1024                   | 0.914                 | 1620                            | YOLO10n              |
+**Performance Comparison of Different Dynamic Object Detection Methods**
 
-## Final Selected Model and Results
-
-Our YOLOv12-based model achieves:
-- mAP@50-95: 0.923
-- Superior anti-counterfeiting capabilities
-- Enhanced feature fusion with 20:80 ratio
+| Method                    | Precision | Recall | F1-score | AP    |
+|--------------------------|-----------|--------|----------|-------|
+| Traditional Differencing | 0.163     | 0.353  | 0.223    | 0.233 |
+| YOLOv12 only             | 0.543     | 0.671  | 0.600    | 0.946 |
+| Depth-Difference-YOLOv12 | 0.917     | 0.886  | 0.901    | 0.972 |
+![image](output.png)
 
 ### Performance Visualization
-<div align="center">
-  <img src="https://github.com/Mariiiiiio/FusionPalmID/blob/master/img/Palm_Detection1.jpg" alt="Detection Results" width="400"/>
-  <p><em>Figure 1: Detection Results 1</em></p>
-</div>
 
-<div align="center">
-  <img src="https://github.com/Mariiiiiio/FusionPalmID/blob/master/img/Palm_Detection2.jpg" alt="Detection Results" width="400"/>
-  <p><em>Figure 2: Detection Results 2</em></p>
-</div>
-
+| Original | LaMa | Ours |
+|----------|------|------|
+| ![](t1.png) | ![](t2.png) | ![](t3.png) |
+| ![](t4.png) | ![](t5.png) | ![](t6.png) |
+| ![](t7.png) | ![](t8.png) | ![](t9.png) |
+---
 
 
 ## License
