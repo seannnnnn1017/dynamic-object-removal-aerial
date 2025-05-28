@@ -105,4 +105,4 @@ python YoloV12/predict.py --weights checkpoints/yolov12_best.pt --source path/to
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/seannnnnn1017/dynamic-object-removal-aerial/blob/main/LICENSE) file for details. 
